@@ -1,6 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/screen/Tab%20bar%20pages/burger_page_screen.dart';
+import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dart';
+import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
+import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -9,9 +13,19 @@ class HomePageScreen extends StatefulWidget {
   State<HomePageScreen> createState() => _HomePageScreenState();
 }
 
-class _HomePageScreenState extends State<HomePageScreen> {
+class _HomePageScreenState extends State<HomePageScreen> with SingleTickerProviderStateMixin{
 
+TabController? tabController;
 
+@override
+  void initState() {
+    // TODO: implement initState
+  tabController = TabController(
+    vsync: this,
+    length: 4,
+  );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,7 +233,27 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         ],
                       ),
 
+                      SizedBox(height: 20,),
 
+                      TabBar(
+                        controller: tabController,
+                          tabs: [
+                            Text("Remen"),
+                            Text("Burger"),
+                            Text("Salad"),
+                            Text("Walfe"),
+                          ],
+                      ),
+                      TabBarView(
+                          controller: tabController,
+                          children: [
+                            RamenPageScreen(),
+                            BurgerPageScreen(),
+                            SaladPageScreen(),
+                            WalfePageScreen(),
+                          ],
+
+                      )
                     ],
                   ),
                 )
