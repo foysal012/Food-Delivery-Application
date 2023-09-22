@@ -12,7 +12,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.blue,
+        color: Colors.purple,
       ),
     );
   }

@@ -4,11 +4,13 @@ class RemenModelClass{
 
 String? imgUrl;
 String? name;
-double? price;
+int? price;
 double? rating;
 int? distance;
+int item = 1;
+int? totalAmount;
 
-RemenModelClass({this.imgUrl, this.name, this.price, this.rating, this.distance});
+RemenModelClass({this.imgUrl, this.name, this.price, this.rating, this.distance,});
 
 static List<RemenModelClass> categoryRemenList = [
   RemenModelClass(
@@ -16,7 +18,7 @@ static List<RemenModelClass> categoryRemenList = [
     name: "Sapporo Miso",
     rating: 5.0,
     distance: 150,
-    price: 3.99
+    price: 4
   ),
 
   RemenModelClass(
@@ -24,7 +26,7 @@ static List<RemenModelClass> categoryRemenList = [
       name: "Kurume ramen",
       rating: 5.0,
       distance: 600,
-      price: 5.99
+      price: 6
   ),
 
   RemenModelClass(
@@ -32,7 +34,7 @@ static List<RemenModelClass> categoryRemenList = [
       name: "jutikla mile",
       rating: 4.5,
       distance: 110,
-      price: 8.99
+      price: 9
   ),
 
   RemenModelClass(
@@ -40,7 +42,7 @@ static List<RemenModelClass> categoryRemenList = [
       name: "Sapporo Miso",
       rating: 4.9,
       distance: 180,
-      price: 9.99
+      price: 10
   ),
 
   RemenModelClass(
@@ -48,7 +50,7 @@ static List<RemenModelClass> categoryRemenList = [
       name: "Sapporo Miso",
       rating: 4.8,
       distance: 190,
-      price: 3.99
+      price: 7
   ),
 ];
 }

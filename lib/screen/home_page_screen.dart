@@ -5,6 +5,7 @@ import 'package:food_delivery_app/screen/Tab%20bar%20pages/burger_page_screen.da
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
+import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -18,6 +19,9 @@ class _HomePageScreenState extends State<HomePageScreen> with SingleTickerProvid
 TabController? tabController;
 
 bool selected = false;
+
+  var data = 0;
+
 
 @override
   void initState() {
@@ -61,7 +65,9 @@ bool selected = false;
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("images/w4.png"),fit: BoxFit.cover)
+                        image: AssetImage("images/w4.png"),
+                        fit: BoxFit.cover
+                    ),
                   ),
 
                   child: Column(
@@ -140,45 +146,51 @@ bool selected = false;
                                 width: 10,
                               ),
 
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(
-                                          color: Colors.black12,
-                                          width: 2,
-                                        ),
-                                        color: Colors.white70
+                              InkWell(
+                                onTap:(){
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyCartPageScreen()));
+                                },
+                                child: Stack(
+
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          border: Border.all(
+                                            color: Colors.black12,
+                                            width: 2,
+                                          ),
+                                          color: Colors.white70
+                                      ),
+                                      child: Icon(Icons.shopping_cart_outlined,size: 30, color: Colors.black,),
                                     ),
-                                    child: Icon(Icons.shopping_cart_outlined,size: 30, color: Colors.black,),
-                                  ),
-                                  Positioned(
-                                      right: -2,
-                                      top: -2,
-                                      child: Container(
-                                        height: 18,
-                                        width: 18,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.redAccent,
-                                        ),
-                                        child: Center(
-                                          child: Text("3",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
+                                    Positioned(
+                                        right: -2,
+                                        top: -2,
+                                        child: Container(
+                                          height: 18,
+                                          width: 18,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.redAccent,
                                           ),
+                                          child: Center(
+                                            child: Text("${data}",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            ),
                                           ),
-                                        ),
-                                      )
-                                  )
-                                ],
+                                        )
+                                    )
+                                  ],
+                                ),
                               )
                             ],
-                          )
+                          ),
 
                         ],
                       ),
@@ -276,9 +288,7 @@ bool selected = false;
                                       Text("Burger"),
                                     ],
                                   )),
-                              Container(
-
-                                  child: Column(
+                              Container(child: Column(
                                     children: [
                                       Image(image: AssetImage("images/salad.png"),height: 50, width: 50,),
                                       Text("Salad"),

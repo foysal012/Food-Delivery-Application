@@ -4,6 +4,8 @@ import 'package:food_delivery_app/model/categorymodel/remen_model_class.dart';
 class RamenPageScreen extends StatefulWidget {
   const RamenPageScreen({Key? key}) : super(key: key);
 
+   //static int selectedItemData = selectedItem;
+
   @override
   State<RamenPageScreen> createState() => _RamenPageScreenState();
 }
@@ -11,6 +13,8 @@ class RamenPageScreen extends StatefulWidget {
 class _RamenPageScreenState extends State<RamenPageScreen> {
 
   var remenData = RemenModelClass.categoryRemenList;
+
+ static int selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                         //height: 80,
                         width: 250,
                         decoration: BoxDecoration(
-                          color: Colors.grey,
+                          color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(25),
 
                         ),
@@ -46,9 +50,15 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                           children: [
                             Center(child: Image(image: AssetImage("${remenData[index].imgUrl}"), height: 170,width: 170,)),
 
-                            SizedBox(height: 15,),
+                            SizedBox(height: 8,),
 
-                            Center(child: Text("${remenData[index].name}")),
+                            Center(child: Text("${remenData[index].name}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20
+                            ),
+                            ),),
 
                             SizedBox(height: 10,),
 
@@ -59,14 +69,32 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                                 Row(
                                   children: [
                                     Icon(Icons.star, color: Colors.orange,),
-                                    Text("${remenData[index].rating}"),
+
+                                    SizedBox(width: 2,),
+
+                                    Text("${remenData[index].rating}",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black38,
+                                          fontSize: 20
+                                      ),
+                                    ),
                                   ],
                                 ),
 
                                 Row(
                                   children: [
                                     Icon(Icons.location_on, color: Colors.pinkAccent,),
-                                    Text("${remenData[index].distance}"),
+
+                                    SizedBox(width: 2,),
+
+                                    Text("${remenData[index].distance}",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black38,
+                                          fontSize: 20
+                                      ),
+                                    ),
                                   ],
                                 )
 
@@ -75,7 +103,13 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
 
                             SizedBox(height: 10,),
 
-                            Text("${remenData[index].price}")
+                            Text("${remenData[index].price}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 22
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -83,17 +117,25 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                       Positioned(
                         bottom:0,
                         right:0,
-                          child: Container(
-                              height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20),
+                          child: InkWell(
+                            onTap:(){
+                              setState(() {
+                                selectedItem++;
+                                print(selectedItem);
+                              });
+                            },
+                            child: Container(
+                                height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  bottomRight: Radius.circular(20),
+                                ),
+                                color: Colors.black,
                               ),
-                              color: Colors.black,
+                              child: Icon(Icons.shopping_cart_outlined, color: Colors.white,),
                             ),
-                            child: Icon(Icons.shopping_cart_outlined, color: Colors.white,),
                           ),
                       )
                     ],
@@ -114,3 +156,4 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
     );
   }
 }
+ //int selectedItem = 0;
