@@ -17,6 +17,8 @@ class _HomePageScreenState extends State<HomePageScreen> with SingleTickerProvid
 
 TabController? tabController;
 
+bool selected = false;
+
 @override
   void initState() {
     // TODO: implement initState
@@ -233,27 +235,86 @@ TabController? tabController;
                         ],
                       ),
 
-                      SizedBox(height: 20,),
+                      SizedBox(height: 10,),
 
-                      TabBar(
-                        controller: tabController,
-                          tabs: [
-                            Text("Remen"),
-                            Text("Burger"),
-                            Text("Salad"),
-                            Text("Walfe"),
-                          ],
+                      Expanded(
+                          flex: 2,
+                          child: TabBar(
+                            controller: tabController,
+                            labelColor: Colors.orange,
+                            indicator: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(08),
+                              ),
+                              border: Border.all(
+                                width: 3,
+                                color: Colors.orangeAccent,
+                              ),
+                            ),
+                            isScrollable: true,
+                            labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 3,
+                            ),
+                            onTap: (val){
+                              print("Index is $val");
+                            },
+                            tabs: [
+                              Container(
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage("images/ramen.png"),height: 50, width: 50,),
+                                      SizedBox(height: 5,),
+                                      Text("Remen"),
+                                    ],
+                                  )),
+                              Container(
+
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage("images/berger.png"),height: 50, width: 50,),
+                                      Text("Burger"),
+                                    ],
+                                  )),
+                              Container(
+
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage("images/salad.png"),height: 50, width: 50,),
+                                      Text("Salad"),
+                                    ],
+                                  )),
+                              Container(
+
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage("images/waffie.png"),height: 50, width: 50,),
+                                      Text("Walfe"),
+                                    ],
+                                  )),
+                            ],
+
+                          ),
                       ),
-                      TabBarView(
-                          controller: tabController,
-                          children: [
-                            RamenPageScreen(),
-                            BurgerPageScreen(),
-                            SaladPageScreen(),
-                            WalfePageScreen(),
-                          ],
 
-                      )
+
+                      //SizedBox(height: 20,),
+
+                      Expanded(
+                        flex: 8,
+                        child: TabBarView(
+
+                            controller: tabController,
+                            children: [
+                              RamenPageScreen(),
+                              BurgerPageScreen(),
+                              SaladPageScreen(),
+                              WalfePageScreen(),
+                            ],
+
+                        ),
+                      ),
+
                     ],
                   ),
                 )

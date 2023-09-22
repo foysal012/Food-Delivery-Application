@@ -11,7 +11,9 @@ class _CategoryPageScreenState extends State<CategoryPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+        body: Container(
+          color: Colors.blue,
+        ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       //home: IntroductionPageScreen1(),
-      home: HomePageScreen(),
+      //home: HomePageScreen(),
+      home: BottomNavigationBarPageScreen(),
     );
   }
 }
