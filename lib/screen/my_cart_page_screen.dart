@@ -1,8 +1,11 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/model/categorymodel/remen_model_class.dart';
 
 class MyCartPageScreen extends StatefulWidget {
   const MyCartPageScreen({Key? key}) : super(key: key);
+
+
 
   @override
   State<MyCartPageScreen> createState() => _MyCartPageScreenState();
@@ -12,11 +15,14 @@ class _MyCartPageScreenState extends State<MyCartPageScreen> {
 
   var allData = RemenModelClass.categoryRemenList;
 
-  List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+   List<String> list = <String>['Bkash', 'Rocket', 'Nagad', 'Upay', "Online Bank", "Visa Card", "Master Card"];
+
+   TextEditingController dateController = TextEditingController();
   
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
+    String dropdownValue = list.first;
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -306,25 +312,201 @@ class _MyCartPageScreenState extends State<MyCartPageScreen> {
                               children: [
                                 Text("Please choose a payment method:"),
 
-                                // DropdownButton(
-                                //   value: selectedValue,
-                                //     items: list.map((String? lists) => DropdownMenuItem(
-                                //       value: lists,
-                                //         child: Text(
-                                //           lists,
-                                //           style: const TextStyle(
-                                //             fontSize: 14,
-                                //           ),
-                                //     ),
-                                //     )
-                                //
-                                // ).toList(),
-                                //   onChanged: (String Value){
-                                //       setState(() {
-                                //         selectedValue = value;
-                                //       });
-                                //   },
-                                // ),
+                               SizedBox(height: 10,),
+
+                                DropdownMenu<String>(
+                                  initialSelection: list.first,
+                                  onSelected: (String? value) {
+                                    // This is called when the user selects an item.
+                                    setState(() {
+                                      dropdownValue = value!;
+                                    });
+                                  },
+                                  dropdownMenuEntries: list.map<DropdownMenuEntry<String>>((String value) {
+                                    return DropdownMenuEntry<String>(value: value, label: value);
+                                  }).toList(),
+                                ),
+
+                                SizedBox(
+                                  height: 15,
+                                ),
+
+                                InkWell(
+                                  onTap: (){
+                                    showDialog(context: context, builder: (context)
+                                      {
+                                       return AlertDialog(
+                                          title: Text("Account  Details"),
+                                          content:Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              TextFormField(
+                                                decoration: InputDecoration(
+                                                  label: Text("Account/Card No."),
+                                                  hintText: "01736******/10515188********",
+
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.pink,
+                                                      width: 3
+                                                    ),
+                                                  ),
+
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 6,),
+
+                                              TextFormField(
+                                                decoration: InputDecoration(
+                                                  label: Text("password/pin No."),
+                                                  hintText: "**************",
+
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 6,),
+
+                                              TextFormField(
+                                                decoration: InputDecoration(
+                                                  label: Text("CVV No."),
+                                                  hintText: "***",
+
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 6,),
+
+                                              TextFormField(
+                                                controller:dateController,
+                                                onTap: () async{
+                                                  var selectedDate = DateTime.now();
+                                              final  DateTime? picked = await showDatePicker(
+                                                  context: context,
+                                                    initialDate: selectedDate,
+                                                    firstDate: DateTime(1971),
+                                                    lastDate: DateTime(2050)
+                                              );
+
+                                              if (picked != null){
+                                                setState(() {
+                                                  selectedDate = picked;
+                                                  var lab = formatDate(selectedDate, [yyyy, '-', mm, '-', dd]);
+                                                  dateController.text = lab;
+                                                  print(dateController);
+                                                });
+                                              } else{
+
+                                              }
+
+                                                },
+                                                decoration: InputDecoration(
+                                                  label: Text("Expery Date"),
+                                                  hintText: "${DateTime.now().year}" + ":" "${DateTime.now().month}" + ":" "${DateTime.now().day}",
+
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.pink,
+                                                        width: 3
+                                                    ),
+                                                  ),
+
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 10,),
+
+                                              InkWell(
+                                                onTap: (){
+                                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Payment sucessfully Done...")));
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Container(
+                                                  height: 40,
+                                                  width: 80,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.pink,
+                                                    borderRadius: BorderRadius.circular(10),
+                                                  ),
+                                                  child: Center(child: Text("Pay",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  )),
+                                                ),
+                                              )
+
+
+                                            ],
+                                          )
+                                          );
+                                      });
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(child: Text("Continue",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),),),
+                                  ),
+                                )
                               ],
                             ),
                           );
@@ -381,5 +563,6 @@ class _MyCartPageScreenState extends State<MyCartPageScreen> {
     getTotalPrice();
     super.initState();
   }
+
 }
 
