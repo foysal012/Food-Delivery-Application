@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/model/categorymodel/remen_model_class.dart';
+import 'package:food_delivery_app/screen/home_page_screen.dart';
 
 class MyCartPageScreen extends StatefulWidget {
   const MyCartPageScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _MyCartPageScreenState extends State<MyCartPageScreen> {
 
                 IconButton(
                     onPressed: (){
-                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePageScreen()));
                     },
                     icon: Icon(Icons.arrow_back, color: Colors.black,),
                 ),
