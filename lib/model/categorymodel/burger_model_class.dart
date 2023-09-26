@@ -11,6 +11,7 @@ class BurgerModelClass{
   BurgerModelClass({this.imgUrl, this.name, this.price, this.rating, this.distance});
 
   static List<BurgerModelClass> categoryBurgerList = [
+
     BurgerModelClass(
         imgUrl: "images/ramen.png",
         name: "Sapporo Miso",
