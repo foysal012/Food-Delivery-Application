@@ -5,6 +5,7 @@ import 'package:food_delivery_app/screen/Tab%20bar%20pages/burger_page_screen.da
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
+import 'package:food_delivery_app/screen/category_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -236,12 +237,17 @@ bool selected = false;
                             fontSize: 20,
                           ),
                           ),
-                          Text("see all",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.orangeAccent,
-                              fontSize: 16,
+                          InkWell(
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryPageScreen()));
+                            },
+                            child: Text("see all",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.orangeAccent,
+                                fontSize: 16,
 
+                              ),
                             ),
                           ),
                         ],
