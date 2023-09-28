@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery_app/provider/category_provider_class.dart';
 import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -20,17 +22,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => CategoryProviderClass()),
+
+        ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        //home: IntroductionPageScreen1(),
+        //home: HomePageScreen(),
+        home: BottomNavigationBarPageScreen(),
+        //home: MyCartPageScreen(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: IntroductionPageScreen1(),
-      //home: HomePageScreen(),
-      //home: BottomNavigationBarPageScreen(),
-      //home: MyCartPageScreen(),
     );
   }
 }

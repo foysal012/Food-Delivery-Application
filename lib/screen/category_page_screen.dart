@@ -3,6 +3,7 @@ import 'package:food_delivery_app/screen/Tab%20bar%20pages/burger_page_screen.da
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
+import 'package:food_delivery_app/screen/favourite_page_screen.dart';
 
 class CategoryPageScreen extends StatefulWidget {
   const CategoryPageScreen({Key? key}) : super(key: key);
@@ -28,6 +29,19 @@ class _CategoryPageScreenState extends State<CategoryPageScreen> with SingleTick
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FavouritePageScreen(
+                  varenda: addItem,
+                )));
+              },
+              icon: Icon(Icons.favorite)
+          )
+        ],
+      ),
         body: Container(
 
           padding: EdgeInsets.only(

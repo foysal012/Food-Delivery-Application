@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/model/categorymodel/remen_model_class.dart';
+import 'package:food_delivery_app/provider/category_provider_class.dart';
+import 'package:provider/provider.dart';
 
 class RamenPageScreen extends StatefulWidget {
   const RamenPageScreen({Key? key}) : super(key: key);
@@ -16,8 +18,11 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
 
  static int selectedItem = 0;
 
+ // List<RemenModelClass> addItem = [];
+
   @override
   Widget build(BuildContext context) {
+    final categoryProviderClass = Provider.of<CategoryProviderClass>(context);
     return Scaffold(
       body: Container(
         
@@ -117,26 +122,84 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                       Positioned(
                         bottom:0,
                         right:0,
-                          child: InkWell(
-                            onTap:(){
-                              setState(() {
-                                selectedItem++;
-                                print(selectedItem);
-                              });
-                            },
-                            child: Container(
+                          child: Consumer<CategoryProviderClass>(builder: (context, value, child){
+                            return InkWell(
+                              onTap:(){
+                                // setState(() {
+                                //   // selectedItem++;
+                                //   // print(selectedItem);
+                                //   // value.setItemList(index);
+                                //   // print("${value.allDataList}");
+                                //
+                                //   if(addItem.contains(remenData[index])) {
+                                //     addItem.remove(
+                                //         RemenModelClass(
+                                //             name: remenData[index].name,
+                                //             price: remenData[index].price,
+                                //             imgUrl: remenData[index].imgUrl,
+                                //             distance: remenData[index].distance,
+                                //             rating: remenData[index].rating
+                                //         )
+                                //     );
+                                //   } else {
+                                //     addItem.add(RemenModelClass(
+                                //         name: remenData[index].name,
+                                //         price: remenData[index].price,
+                                //         imgUrl: remenData[index].imgUrl,
+                                //         distance: remenData[index].distance,
+                                //         rating: remenData[index].rating
+                                //     ));
+                                //   }
+                                //   // addItem.add(RemenModelClass(
+                                //   //   name: remenData[index].name,
+                                //   //   price: remenData[index].price,
+                                //   //   imgUrl: remenData[index].imgUrl,
+                                //   //   distance: remenData[index].distance,
+                                //   //   rating: remenData[index].rating
+                                //   // ));
+                                //
+                                //   print("${addItem.length}");
+                                //   print("${addItem.toString()}");
+                                //
+                                // });
+
+                                value.allDataList.contains(remenData[index]) == false ?
+
+                                  value.setAddItemList(RemenModelClass(
+                                      imgUrl: remenData[index].imgUrl,
+                                      name: remenData[index].name,
+                                      rating: remenData[index].rating,
+                                      distance: remenData[index].distance,
+                                      price: remenData[index].price
+                                  )) : value.setRemoveItemList(
+                                    RemenModelClass(
+                                        imgUrl: remenData[index].imgUrl,
+                                        name: remenData[index].name,
+                                        rating: remenData[index].rating,
+                                        distance: remenData[index].distance,
+                                        price: remenData[index].price
+                                    )
+                                  // remenData[index]
+
+                                );
+
+                                print(value.allDataList.length);
+                                print(value.allDataList.toList());
+                              },
+                              child: Container(
                                 height: 45,
-                              width: 45,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  bottomRight: Radius.circular(20),
+                                width: 45,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                  color: Colors.black,
                                 ),
-                                color: Colors.black,
+                                child: Icon(Icons.shopping_cart_outlined, color: Colors.white,),
                               ),
-                              child: Icon(Icons.shopping_cart_outlined, color: Colors.white,),
-                            ),
-                          ),
+                            );
+                          },)
                       )
                     ],
                   );
@@ -146,7 +209,8 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                     width: 10,
                   );
                   },
-                  itemCount: remenData.length,
+                itemCount: remenData.length,
+                  //itemCount: categoryProviderClass.allDataList.length,
               ),
             ),
 
@@ -157,3 +221,4 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
   }
 }
  //int selectedItem = 0;
+List<RemenModelClass> addItem = [];
