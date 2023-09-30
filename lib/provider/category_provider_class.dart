@@ -14,40 +14,33 @@ class CategoryProviderClass with ChangeNotifier{
   }
 
   void setRemoveItemList(remenModelClass){
+
     _allDataList.remove(remenModelClass);
     notifyListeners();
   }
 
-  void setIncreaseItem(var index){
+  void setIncreaseItem(RemenModelClass remenModelClass){
 
-    // remenModelClass!.item++;
-    // remenModelClass!.totalAmount = remenModelClass!.price! * remenModelClass!.item;
+    final index = _allDataList.indexOf(remenModelClass);
 
-    _allDataList[index].item++;
-    _allDataList[index].totalAmount = _allDataList[index].price! * _allDataList[index].item;
+    if(index != -1){
+      _allDataList[index].item++;
+      _allDataList[index].totalAmount = _allDataList[index].price! * _allDataList[index].item;
+      notifyListeners();
+    }
 
-    // _allDataList.forEach((element) {
-    //   element[index].item++;
-    //   element.totalAmount = element.price! * element.item;
-    // });
+  }
 
-    // for(var i in _allDataList){
-    //   i.item++;
-    //   i.totalAmount = i.price! * i.item;
-    // }
+  void setDecreaseItem(RemenModelClass remenModelClass){
 
-    // _allDataList.asMap().forEach((index, value) {
-    //   value[index]!.item++;
-    //   value.totalAmount = value.price! * value.item;
-    // });
+    final index = _allDataList.indexOf(remenModelClass);
+    if(_allDataList[index].item <= 1){
 
-    // _allDataList.map((e) {
-    //   e.item++;
-    //   e.totalAmount = e.price! * e.item;
-    // });
-
-
-    notifyListeners();
+    } else {
+      _allDataList[index].item--;
+      _allDataList[index].totalAmount = _allDataList[index].price! * _allDataList[index].item;
+      notifyListeners();
+    }
   }
 
 }

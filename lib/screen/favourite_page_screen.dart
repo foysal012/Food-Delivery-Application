@@ -15,7 +15,7 @@ class FavouritePageScreen extends StatefulWidget {
 class _FavouritePageScreenState extends State<FavouritePageScreen> {
   @override
   Widget build(BuildContext context) {
-    final categoryProviderClass = Provider.of<CategoryProviderClass>(context);
+    final categoryProviderClass = Provider.of<CategoryProviderClass>(context, listen: false);
     print("build");
     print("value");
     return Scaffold(
@@ -118,71 +118,74 @@ class _FavouritePageScreenState extends State<FavouritePageScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text("\$${categoryProviderClass.allDataList[index].totalAmount == null ? categoryProviderClass.allDataList[index].price : categoryProviderClass.allDataList[index].totalAmount}",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 23,
-                            ),
+                          Consumer<CategoryProviderClass>(
+                              builder: (context, value, child){
+                                return Text("\$${value.allDataList[index].totalAmount == null ? value.allDataList[index].price : value.allDataList[index].totalAmount}",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 23,
+                                  ),
+                                );
+                              }
                           ),
 
                           Row(
                             children: [
 
-                              InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    if(categoryProviderClass.allDataList[index].item <= 1){
-
-                                    } else{
-                                      categoryProviderClass.allDataList[index].item--;
-                                      categoryProviderClass.allDataList[index].totalAmount = categoryProviderClass.allDataList[index].price! * categoryProviderClass.allDataList[index].item;
-                                    }
-                                  });
-                                },
-                                child: Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.pink,
-                                      width: 3,
+                              Consumer<CategoryProviderClass>(builder: (context, value, child){
+                                return InkWell(
+                                  onTap: (){
+                                    //categoryProviderClass.setDecreaseItem(categoryProviderClass.allDataList[index]);
+                                    value.setDecreaseItem(value.allDataList[index]);
+                                  },
+                                  child: Container(
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white,
+                                      border: Border.all(
+                                        color: Colors.pink,
+                                        width: 3,
+                                      ),
                                     ),
+                                    child: Icon(Icons.remove),
                                   ),
-                                  child: Icon(Icons.remove),
-                                ),
-                              ),
+                                );
+                              }),
 
                               SizedBox(width: 10,),
 
-                              Text("${categoryProviderClass.allDataList[index].item}"),
+                              Consumer<CategoryProviderClass>(builder: (context, value, child){
+                                return Text("${value.allDataList[index].item}");
+                              }),
 
                               SizedBox(width: 10,),
 
-                              InkWell(
-                                onTap: (){
-                                  //setState(() {
-                                   //categoryProviderClass.allDataList[index].item++;
-                                    //categoryProviderClass.allDataList[index].totalAmount = categoryProviderClass.allDataList[index].price! * categoryProviderClass.allDataList[index].item;
-                                   categoryProviderClass.setIncreaseItem(categoryProviderClass.allDataList[index]);
-                                 // });
-                                },
-                                child: Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.pink,
-                                      width: 3,
-                                    ),
-                                  ),
-                                  child: Icon(Icons.add),
-                                ),
-                              ),
+                             Consumer<CategoryProviderClass>(
+                                 builder: (context, value, child){
+                                   return  InkWell(
+                                     onTap: (){
+                                       //categoryProviderClass.setIncreaseItem(categoryProviderClass.allDataList[index]);
+                                       value.setIncreaseItem(value.allDataList[index]);
+                                     },
+                                     child: Container(
+                                       height: 35,
+                                       width: 35,
+                                       decoration: BoxDecoration(
+                                         shape: BoxShape.circle,
+                                         color: Colors.white,
+                                         border: Border.all(
+                                           color: Colors.pink,
+                                           width: 3,
+                                         ),
+                                       ),
+                                       child: Icon(Icons.add),
+                                     ),
+                                   );
+                                 },
+                             )
 
                             ],
                           ),
@@ -208,75 +211,6 @@ class _FavouritePageScreenState extends State<FavouritePageScreen> {
               itemCount: categoryProviderClass.allDataList.length,
           ),
         ),
-
-        // Expanded(
-        //   child: ListView.separated(
-        //     shrinkWrap: true,
-        //     scrollDirection: Axis.vertical,
-        //       itemBuilder: (context, index){
-        //       return Container(
-        //        height: 300,
-        //        width: double.infinity,
-        //
-        //        decoration: BoxDecoration(
-        //          borderRadius: BorderRadius.circular(10),
-        //          border: Border.all(
-        //            width: 3,
-        //            color: Colors.pink,
-        //          ),
-        //          color: Colors.grey[200],
-        //        ),
-        //         child: Column(
-        //           children: [
-        //             Image.asset("${widget.varenda![index].imgUrl}", height: 100, width: 100,),
-        //
-        //             SizedBox(height: 10,),
-        //
-        //             Text("${widget.varenda![index].name}"),
-        //
-        //             SizedBox(height: 10,),
-        //
-        //             Row(
-        //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //               children: [
-        //
-        //                 Row(
-        //                   children: [
-        //                     Icon(Icons.star, color: Colors.orangeAccent,),
-        //
-        //                     SizedBox(width: 5,),
-        //
-        //                     Text("${widget.varenda![index].rating}")
-        //                   ],
-        //                 ),
-        //
-        //                 Row(
-        //                   children: [
-        //                     Icon(Icons.location_on, color: Colors.orangeAccent,),
-        //
-        //                     SizedBox(width: 5,),
-        //
-        //                     Text("${widget.varenda![index].distance}")
-        //                   ],
-        //                 )
-        //               ],
-        //             ),
-        //
-        //             SizedBox(
-        //               height: 20,
-        //             ),
-        //
-        //             Text("${widget.varenda![index].price}")
-        //           ],
-        //         ),
-        //       );
-        //       },
-        //       separatorBuilder: (_, index){
-        //       return SizedBox(height: 10,);
-        //       },
-        //       itemCount: widget.varenda!.length
-        //   ),
-        // ),
       ),
     );
   }
