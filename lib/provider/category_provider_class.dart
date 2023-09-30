@@ -26,6 +26,7 @@ class CategoryProviderClass with ChangeNotifier{
     if(index != -1){
       _allDataList[index].item++;
       _allDataList[index].totalAmount = _allDataList[index].price! * _allDataList[index].item;
+      getTotalPrice();
       notifyListeners();
     }
 
@@ -39,8 +40,28 @@ class CategoryProviderClass with ChangeNotifier{
     } else {
       _allDataList[index].item--;
       _allDataList[index].totalAmount = _allDataList[index].price! * _allDataList[index].item;
+      getTotalPrice();
       notifyListeners();
     }
+  }
+
+
+    var _subTotalPrice = 0;
+    get subTotalPrice => _subTotalPrice;
+    var deliveryCharge = 10;
+
+
+  void getTotalPrice(){
+    var total = 0;
+
+    _allDataList.forEach((element) {
+      total = total + (element.totalAmount?? element.price)!;
+      print("total price is $total");
+    });
+
+
+    _subTotalPrice = total;
+    notifyListeners();
   }
 
 }

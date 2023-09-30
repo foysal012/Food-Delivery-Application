@@ -13,6 +13,19 @@ class FavouritePageScreen extends StatefulWidget {
 }
 
 class _FavouritePageScreenState extends State<FavouritePageScreen> {
+
+  // final dorker = Provider.of<CategoryProviderClass>(context, listen: true);
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   dorker.getTotalPrice();
+  //   super.initState();
+  // }
+
+  // aita aktu limitation
+  //tik korbo in sha allah
+
   @override
   Widget build(BuildContext context) {
     final categoryProviderClass = Provider.of<CategoryProviderClass>(context, listen: false);
@@ -28,188 +41,315 @@ class _FavouritePageScreenState extends State<FavouritePageScreen> {
         height: double.infinity,
         width: double.infinity,
 
-        child: Expanded(
-          child: ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index){
-                return Container(
-                  margin: EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                  ),
+        child: Column(
+          children: [
 
+            Expanded(
+              flex: 8,
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index){
+                    return Container(
+                      margin: EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+
+                      padding: EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+
+                      height: 300,
+                      width: double.infinity,
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          width: 3,
+                          color: Colors.pink,
+                        ),
+                        color: Colors.grey[200],
+                      ),
+                      child: Column(
+                        children: [
+                          Image.asset("${categoryProviderClass.allDataList[index].imgUrl}", height: 150, width: 150,),
+
+                          SizedBox(height: 8,),
+
+                          Text("${categoryProviderClass.allDataList[index].name}",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 25
+                          ),
+                          ),
+
+                          SizedBox(height: 8,),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+
+                              Row(
+                                children: [
+                                  Icon(Icons.star, color: Colors.orangeAccent,),
+
+                                  SizedBox(width: 5,),
+
+                                  Text("${categoryProviderClass.allDataList[index].rating}",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                    ),
+                                  )
+                                ],
+                              ),
+
+                              Row(
+                                children: [
+                                  Icon(Icons.location_on, color: Colors.orangeAccent,),
+
+                                  SizedBox(width: 5,),
+
+                                  Text("${categoryProviderClass.allDataList[index].distance}",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+
+                          SizedBox(
+                            height: 10,
+                          ),
+
+
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Consumer<CategoryProviderClass>(
+                                  builder: (context, value, child){
+                                    return Text("\$${value.allDataList[index].totalAmount == null ? value.allDataList[index].price : value.allDataList[index].totalAmount}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 23,
+                                      ),
+                                    );
+                                  }
+                              ),
+
+                              Row(
+                                children: [
+
+                                  Consumer<CategoryProviderClass>(builder: (context, value, child){
+                                    return InkWell(
+                                      onTap: (){
+                                        //categoryProviderClass.setDecreaseItem(categoryProviderClass.allDataList[index]);
+                                        value.setDecreaseItem(value.allDataList[index]);
+                                      },
+                                      child: Container(
+                                        height: 35,
+                                        width: 35,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                          border: Border.all(
+                                            color: Colors.pink,
+                                            width: 3,
+                                          ),
+                                        ),
+                                        child: Icon(Icons.remove),
+                                      ),
+                                    );
+                                  }),
+
+                                  SizedBox(width: 10,),
+
+                                  Consumer<CategoryProviderClass>(builder: (context, value, child){
+                                    return Text("${value.allDataList[index].item}");
+                                  }),
+
+                                  SizedBox(width: 10,),
+
+                                 Consumer<CategoryProviderClass>(
+                                     builder: (context, value, child){
+                                       return  InkWell(
+                                         onTap: (){
+                                           //categoryProviderClass.setIncreaseItem(categoryProviderClass.allDataList[index]);
+                                           value.setIncreaseItem(value.allDataList[index]);
+                                         },
+                                         child: Container(
+                                           height: 35,
+                                           width: 35,
+                                           decoration: BoxDecoration(
+                                             shape: BoxShape.circle,
+                                             color: Colors.white,
+                                             border: Border.all(
+                                               color: Colors.pink,
+                                               width: 3,
+                                             ),
+                                           ),
+                                           child: Icon(Icons.add),
+                                         ),
+                                       );
+                                     },
+                                 )
+
+                                ],
+                              ),
+
+                              IconButton(
+                                  onPressed: (){
+
+                                  },
+                                  icon: Icon(Icons.delete, color: Colors.black,)
+                              )
+
+                            ],
+                          )
+
+
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (_, index){
+                    return SizedBox(height: 10,);
+                  },
+                  itemCount: categoryProviderClass.allDataList.length,
+              ),
+            ),
+
+            Expanded(
+              flex: 2,
+                child: Container(
                   padding: EdgeInsets.only(
                     left: 20,
                     right: 20,
                   ),
-
-                  height: 300,
+                  height: 150,
                   width: double.infinity,
-
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      width: 3,
-                      color: Colors.pink,
-                    ),
-                    color: Colors.grey[200],
+                    color: Colors.grey[300],
                   ),
                   child: Column(
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("${categoryProviderClass.allDataList[index].imgUrl}", height: 150, width: 150,),
-
-                      SizedBox(height: 8,),
-
-                      Text("${categoryProviderClass.allDataList[index].name}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 25
-                      ),
-                      ),
-
-                      SizedBox(height: 8,),
 
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                          Row(
-                            children: [
-                              Icon(Icons.star, color: Colors.orangeAccent,),
-
-                              SizedBox(width: 5,),
-
-                              Text("${categoryProviderClass.allDataList[index].rating}",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                ),
-                              )
-                            ],
+                          Text("Delivery",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                           ),
 
-                          Row(
-                            children: [
-                              Icon(Icons.location_on, color: Colors.orangeAccent,),
+                          SizedBox(
+                            width: 10,
+                          ),
 
-                              SizedBox(width: 5,),
+                          Text(".............................",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
 
-                              Text("${categoryProviderClass.allDataList[index].distance}",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                          SizedBox(
+                            width: 10,
+                          ),
 
-                      SizedBox(
-                        height: 10,
-                      ),
-
-
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
                           Consumer<CategoryProviderClass>(
-                              builder: (context, value, child){
-                                return Text("\$${value.allDataList[index].totalAmount == null ? value.allDataList[index].price : value.allDataList[index].totalAmount}",
+                              builder:(context, value, child){
+                                return Text("\$${value.deliveryCharge}",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
-                                    fontSize: 23,
                                   ),
                                 );
-                              }
-                          ),
-
-                          Row(
-                            children: [
-
-                              Consumer<CategoryProviderClass>(builder: (context, value, child){
-                                return InkWell(
-                                  onTap: (){
-                                    //categoryProviderClass.setDecreaseItem(categoryProviderClass.allDataList[index]);
-                                    value.setDecreaseItem(value.allDataList[index]);
-                                  },
-                                  child: Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: Colors.pink,
-                                        width: 3,
-                                      ),
-                                    ),
-                                    child: Icon(Icons.remove),
-                                  ),
-                                );
-                              }),
-
-                              SizedBox(width: 10,),
-
-                              Consumer<CategoryProviderClass>(builder: (context, value, child){
-                                return Text("${value.allDataList[index].item}");
-                              }),
-
-                              SizedBox(width: 10,),
-
-                             Consumer<CategoryProviderClass>(
-                                 builder: (context, value, child){
-                                   return  InkWell(
-                                     onTap: (){
-                                       //categoryProviderClass.setIncreaseItem(categoryProviderClass.allDataList[index]);
-                                       value.setIncreaseItem(value.allDataList[index]);
-                                     },
-                                     child: Container(
-                                       height: 35,
-                                       width: 35,
-                                       decoration: BoxDecoration(
-                                         shape: BoxShape.circle,
-                                         color: Colors.white,
-                                         border: Border.all(
-                                           color: Colors.pink,
-                                           width: 3,
-                                         ),
-                                       ),
-                                       child: Icon(Icons.add),
-                                     ),
-                                   );
-                                 },
-                             )
-
-                            ],
-                          ),
-
-                          IconButton(
-                              onPressed: (){
-
-                              },
-                              icon: Icon(Icons.delete, color: Colors.black,)
-                          )
+                              } )
 
                         ],
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Text("Total Order",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+
+                          SizedBox(
+                            width: 10,
+                          ),
+
+                          Text(".............................",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+
+                          SizedBox(
+                            width: 10,
+                          ),
+
+                          Consumer<CategoryProviderClass>(builder: (context, value, child){
+                            return Text("\$${value.subTotalPrice}",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            );
+                          })
+
+                        ],
+                      ),
+
+                      InkWell(
+                        onTap: (){},
+                        child: Container(
+                          height: 60,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.black26,
+
+                          ),
+                          child: Consumer<CategoryProviderClass>(
+                            builder: (context, value, child){
+                              return Center(child: Text("\$${value.deliveryCharge + value.subTotalPrice}",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              )
+                              );
+                            },
+                          )
+                        ),
                       )
-
-
                     ],
                   ),
-                );
-              },
-              separatorBuilder: (_, index){
-                return SizedBox(height: 10,);
-              },
-              itemCount: categoryProviderClass.allDataList.length,
-          ),
+                ),
+            ),
+          ],
         ),
       ),
     );
