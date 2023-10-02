@@ -6,6 +6,7 @@ import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dar
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
 import 'package:food_delivery_app/screen/category_page_screen.dart';
+import 'package:food_delivery_app/screen/drawer_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -23,6 +24,8 @@ bool selected = false;
 
   var data = 0;
 
+  GlobalKey<ScaffoldState>  _drawerGlobalKey = GlobalKey();
+
 
 @override
   void initState() {
@@ -37,7 +40,8 @@ bool selected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      key: _drawerGlobalKey,
+      drawer: MyDrawer(),
       body: Container(
 
         height: double.infinity,
@@ -78,6 +82,10 @@ bool selected = false;
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+
+                          IconButton(onPressed: (){
+                            _drawerGlobalKey.currentState!.openDrawer();
+                          }, icon: Icon(Icons.menu)),
                           
                           Column(
                             children: [
