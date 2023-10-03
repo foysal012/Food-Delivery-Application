@@ -8,6 +8,8 @@ import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dar
 import 'package:food_delivery_app/screen/category_page_screen.dart';
 import 'package:food_delivery_app/screen/drawer_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -208,15 +210,26 @@ bool selected = false;
                         height: 40,
                       ),
 
-                      Text("Let's finds the best\nfood around you",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        wordSpacing: 2,
-                        letterSpacing: 0.5,
+                      // Text("Let's finds the best\nfood around you",
+                      // style: TextStyle(
+                      //   fontSize: 25,
+                      //   color: Colors.black,
+                      //   fontWeight: FontWeight.bold,
+                      //   wordSpacing: 2,
+                      //   letterSpacing: 0.5,
+                      //
+                      // ),
+                      // )
 
-                      ),
+                      Text(AppLocalizations.of(context)!.titletext1,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          wordSpacing: 2,
+                          letterSpacing: 0.5,
+
+                        ),
                       )
                     ],
                   ),

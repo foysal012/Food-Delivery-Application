@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/provider/language_change_controller_provider.dart';
 import 'package:food_delivery_app/provider/theme_changer_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ class MyDrawer extends StatefulWidget {
   State<MyDrawer> createState() => _MyDrawerState();
 }
 
+enum Language {English, Bangla, Spanish}
 class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class _MyDrawerState extends State<MyDrawer> {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
-                              fontSize: 30,
+                              fontSize: 25,
                             ),
                           ),
                           Container(
@@ -67,7 +69,36 @@ class _MyDrawerState extends State<MyDrawer> {
                         radius: 30,
                         backgroundImage: NetworkImage(
                             "https://pbs.twimg.com/profile_images/1605607703178403840/hvbe8OEE_400x400.jpg"),
-                      )
+                      ),
+
+                      Consumer<LanguageChangeControllerProvider>(builder: (context, value, child){
+                        return PopupMenuButton(itemBuilder: (BuildContext context) => <PopupMenuEntry<Language>>[
+
+                          PopupMenuItem(
+                            value: Language.English,
+                            child: Text("English"),),
+
+                          PopupMenuItem(
+                            value: Language.Bangla,
+                            child: Text("Bangla"),),
+
+                          PopupMenuItem(
+                            value: Language.Spanish,
+                            child: Text("Spanish"),),
+
+                        ],
+                          onSelected: (Language icon){
+
+                          if(Language.English.name == icon.name){
+                            value.changeLanguage(Locale("en"));
+                          } else if(Language.Bangla.name == icon.name){
+                            value.changeLanguage(Locale("bn"));
+                          } else {
+                            value.changeLanguage(Locale("es"));
+                          }
+                          },
+                        );
+                      })
                     ],
                   ),
 
