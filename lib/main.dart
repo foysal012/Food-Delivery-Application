@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:food_delivery_app/provider/category_provider_class.dart';
 import 'package:food_delivery_app/provider/language_change_controller_provider.dart';
 import 'package:food_delivery_app/provider/theme_changer_provider.dart';
+import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
 import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
+import 'package:food_delivery_app/screen/messageing_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -89,8 +91,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             //home: IntroductionPageScreen1(),
             //home: HomePageScreen(),
-            home: BottomNavigationBarPageScreen(),
+            //home: BottomNavigationBarPageScreen(),
             //home: MyCartPageScreen(),
+            //home: MessagingPageScreen(),
+            home: SignInPageScreen(),
           );
         });
       })
