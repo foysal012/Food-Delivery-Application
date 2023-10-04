@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MessagingPageScreen extends StatefulWidget {
   const MessagingPageScreen({Key? key}) : super(key: key);
@@ -29,7 +31,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
               height: 20,
             ),
 
-            Text("Welcome to Food_Chain\n     Custormer Service",
+            Text(AppLocalizations.of(context)!.mstitile,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black87,
@@ -66,7 +68,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
 
                       SizedBox(width: 3,),
 
-                      Text("Rahul Reza",
+                      Text(AppLocalizations.of(context)!.msname,
                       style: TextStyle(
                       fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -97,7 +99,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
 
                             SizedBox(width: 5,),
 
-                            Text("online"),
+                            Text(AppLocalizations.of(context)!.msactive),
 
 
                           ],
@@ -115,10 +117,10 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
 
                       SizedBox(width: 5),
 
-                      Text("working time: 6.00am - 9.00pm GMT+6",
+                      Text(AppLocalizations.of(context)!.mstime,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 12
+                        fontSize: 10
                       ),
                       )
                     ],
@@ -133,7 +135,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
 
                       SizedBox(width: 5),
 
-                      Text("+658486605 (WhatsApp)",
+                      Text(AppLocalizations.of(context)!.msnum,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14
@@ -182,7 +184,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
                           maxHeight: 200,
                           maxWidth: 200,
                         ),
-                      child: Text("বেশি সমস্যা মনে হলে Whatsapp Massage করুন নম্বার 01919084813। অডার করার পর 5-20 মিনিট এর মাঝে Live Chat করুন। কোন সমস্যা ছাড়া অযখা মেসেজ দিবেন না। যদি কোন কারণ ছাড়া মেসেজ দিন তাহলে আপনার Live Chat বন্ধ হয়ে যেতে পারে।"),
+                      child: Text(AppLocalizations.of(context)!.mssms),
                     ),
                   ),
                 ),
@@ -208,7 +210,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
                   TextFormField(
                     controller: textController,
                 decoration: InputDecoration(
-                  hintText: "Chat",
+                  hintText: AppLocalizations.of(context)!.mshint,
                   suffixIcon:
                       Icon(Icons.send,),
                 ),

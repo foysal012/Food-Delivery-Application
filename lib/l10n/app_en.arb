@@ -1,5 +1,97 @@
 {
 
-"titletext1" : "Lets finds the best\nfood around you"
+"titletext1" : "Lets finds the best\nfood around you",
+
+"findbycategory" : "Find by Category",
+
+"seeall" : "See All",
+
+"yourlocation" : "Your Location",
+
+"yourlocation1" : "shibuya, Japan",
+
+"remen" : "Remen",
+
+"burger" : "Burger",
+
+"salad" : "Salad",
+
+"walfe" : "walfe",
+
+"sapporomiso" : "Sapporo Miso",
+
+"home" : "Home",
+
+"messaging" : "Messaging",
+
+"category" : "CateGory",
+
+"profile" : "Profile",
+
+"mstitile" : "Welcome to Food_chain\nCustomer Service",
+
+"msname" : "Rahul Reza",
+
+"msactive" : "online",
+
+"mstime" : "working time: 6.00am - 9.00pm GMT+6",
+
+"msnum" : "+658486605 (WhatsApp)",
+
+"mshint" : "Chat",
+
+"mssms" : "If you feel more problem Whatsapp Massage number 01919084813. Live Chat between 5-20 minutes after ordering. Don't send unnecessary messages without any problem. If you send messages for no reason then your Live Chat may be closed.",
+
+"psprofile" : "Profile",
+
+"pspro" : "FZ",
+
+"psname" : "Foysal Joarder",
+
+"psbalance" : "Balance: ",
+
+"psbamount" : "1000",
+
+"pspoint" : "Points: ",
+
+"pspamount" : "376",
+
+"pspayement" : "Payment:",
+
+"psopayment" : "Bank/MFS/Card/Crypto",
+
+"pshs" : "Help & Support",
+
+"pssp" : "Security & Privecy",
+
+"dname" : "Foysal Joarder",
+
+"drf" : "Refer Friends",
+
+"dbav" : "Book a veichle",
+
+"dmb" : "My Bookings",
+
+"dpro" : "Profile",
+
+"dpay" : "payments",
+
+"dgb" : "Gieft & Bonuses",
+
+"dp1" : "Have Questions?",
+
+"dp2" : "About Services",
+
+"dp3" : "Terms of Usage",
+
+"dt1" : "Light Theme",
+
+"dt2" : "Dark Theme",
+
+"dt3" : "System Theme",
+
+"db1" : "Become a Superuser",
+
+"db2" : "Earn money with a design"
 
 }

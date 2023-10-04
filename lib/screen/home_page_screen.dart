@@ -95,7 +95,7 @@ bool selected = false;
                               Row(
                                 children: [
                                   
-                                  Text("Your Location",
+                                  Text(AppLocalizations.of(context)!.yourlocation,
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.black54,
@@ -120,7 +120,7 @@ bool selected = false;
 
                                   SizedBox(width: 3,),
 
-                                  Text("shibuya, Japan",
+                                  Text(AppLocalizations.of(context)!.yourlocation1,
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.black54,
@@ -210,17 +210,6 @@ bool selected = false;
                         height: 40,
                       ),
 
-                      // Text("Let's finds the best\nfood around you",
-                      // style: TextStyle(
-                      //   fontSize: 25,
-                      //   color: Colors.black,
-                      //   fontWeight: FontWeight.bold,
-                      //   wordSpacing: 2,
-                      //   letterSpacing: 0.5,
-                      //
-                      // ),
-                      // )
-
                       Text(AppLocalizations.of(context)!.titletext1,
                         style: TextStyle(
                           fontSize: 25,
@@ -251,18 +240,20 @@ bool selected = false;
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Find by Category",
+                          Text(
+                            AppLocalizations.of(context)!.findbycategory,
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             color: Colors.black87,
                             fontSize: 20,
                           ),
                           ),
+
                           InkWell(
                             onTap: (){
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryPageScreen()));
                             },
-                            child: Text("see all",
+                            child: Text(AppLocalizations.of(context)!.seeall,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.orangeAccent,
@@ -304,7 +295,7 @@ bool selected = false;
                                     children: [
                                       Image(image: AssetImage("images/ramen.png"),height: 50, width: 50,),
                                       SizedBox(height: 5,),
-                                      Text("Remen"),
+                                      Text(AppLocalizations.of(context)!.remen),
                                     ],
                                   )),
                               Container(
@@ -312,13 +303,13 @@ bool selected = false;
                                   child: Column(
                                     children: [
                                       Image(image: AssetImage("images/berger.png"),height: 50, width: 50,),
-                                      Text("Burger"),
+                                      Text(AppLocalizations.of(context)!.burger),
                                     ],
                                   )),
                               Container(child: Column(
                                     children: [
                                       Image(image: AssetImage("images/salad.png"),height: 50, width: 50,),
-                                      Text("Salad"),
+                                      Text(AppLocalizations.of(context)!.salad),
                                     ],
                                   )),
                               Container(
@@ -326,7 +317,7 @@ bool selected = false;
                                   child: Column(
                                     children: [
                                       Image(image: AssetImage("images/waffie.png"),height: 50, width: 50,),
-                                      Text("Walfe"),
+                                      Text(AppLocalizations.of(context)!.walfe),
                                     ],
                                   )),
                             ],

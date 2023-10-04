@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
         return Consumer<LanguageChangeControllerProvider>(builder: (contex, value, child){
           return MaterialApp(
             title: 'Flutter Demo',
-            locale: value.appLocale,
+           locale: value.appLocale,
+            //locale: Locale("es"),
             localizationsDelegates: [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,

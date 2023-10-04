@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class ProfilePageScreen extends StatefulWidget {
   const ProfilePageScreen({Key? key}) : super(key: key);
 
@@ -42,7 +45,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
 
                 SizedBox(width: 10,),
 
-                Text("Profile",
+                Text(AppLocalizations.of(context)!.profile,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.green,
@@ -66,7 +69,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     color: Colors.green.withOpacity(0.8),
                   ),
                   child: Center(
-                    child: Text("FZ",
+                    child: Text(AppLocalizations.of(context)!.pspro,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -80,7 +83,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
 
                 Column(
                   children: [
-                    Text("Foysal Joarder",
+                    Text(AppLocalizations.of(context)!.psname,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -118,7 +121,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Balance: ",
+                  Text(AppLocalizations.of(context)!.psbalance,
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,
@@ -152,7 +155,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Points: ",
+                  Text(AppLocalizations.of(context)!.pspoint,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
@@ -186,16 +189,16 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Payment: ",
+                  Text(AppLocalizations.of(context)!.pspayement,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text("Bank/MFS/Card/Crypto",
+                  Text(AppLocalizations.of(context)!.psopayment,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -224,7 +227,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
 
                   SizedBox(width: 20,),
 
-                  Text("Help & Support",
+                  Text(AppLocalizations.of(context)!.pshs,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
@@ -255,7 +258,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
 
                   SizedBox(width: 20,),
 
-                  Text("Security & Privecy",
+                  Text(AppLocalizations.of(context)!.pssp,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,

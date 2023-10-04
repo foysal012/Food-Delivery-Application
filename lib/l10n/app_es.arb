@@ -1,3 +1,96 @@
 {
-"titletext1" : "Busquemos la mejor\ncomida a tu alrededor."
+"titletext1" : "Busquemos la mejor\ncomida a tu alrededor.",
+
+"findbycategory" : "Buscar por categoría",
+
+"seeall" : "ver todo",
+
+"yourlocation" : "Tu ubicación",
+
+"yourlocation1" : "Shibuya, Japón",
+
+"remen" : "remen",
+
+"burger" : "Hamburguesa",
+
+"salad" : "Ensalada",
+
+"walfe" : "Walfe",
+
+"sapporomiso" : "Miso de Sapporo",
+
+"home" : "Hogar",
+
+"messaging" : "Mensajería",
+
+"category" : "Categoría",
+
+"profile" : "Perfil",
+
+"mstitile" : "Bienvenido a Food_chain\nServicio al cliente",
+
+"msname" : "Raúl Reza",
+
+"msactive" : "en línea",
+
+"mstime" : "Horario de trabajo: 6:00 a. m. - 9:00 p. m. GMT+6",
+
+"msnum" : "+658486605 (WhatsApp)",
+
+"mshint" : "Charlar",
+
+"mssms" : "Si tiene más problemas, número de masaje Whatsapp 01919084813. Chat en vivo entre 5 y 20 minutos después de realizar el pedido. No envíes mensajes innecesarios sin ningún problema. Si envía mensajes sin ningún motivo, es posible que se cierre su chat en vivo.",
+
+"psprofile" : "Perfil",
+
+"pspro" : "FZ",
+
+"psname" : "Joarder Foysal",
+
+"psbalance" : "Balance: ",
+
+"psbamount" : "mil",
+
+"pspoint" : "Puntos: ",
+
+"pspamount" : "trescientos setenta y seis",
+
+"pspayement" : "Pago:",
+
+"psopayment" : "Banco/MFS/Tarjeta/Cripto",
+
+"pshs" : "Servicio de asistencia",
+
+"pssp" : "Seguridad y privacidad",
+
+"dname" : "Joarder Foysal",
+
+"drf" : "Recomendar amigas",
+
+"dbav" : "Reservar un vehículo",
+
+"dmb" : "Mis Reservas",
+
+"dpro" : "Perfil",
+
+"dpay" : "Pagos",
+
+"dgb" : "Regalos y bonificaciones",
+
+"dp1" : "¿Tiene preguntas?",
+
+"dp2" : "Acerca de los servicios",
+
+"dp3" : "Términos de uso",
+
+"dt1" : "Tema ligero",
+
+"dt2" : "Tema oscuro",
+
+"dt3" : "Tema del sistema",
+
+"db1" : "Conviértete en una superusuario",
+
+"db2" : "Gana dinero con un diseño"
+
 }

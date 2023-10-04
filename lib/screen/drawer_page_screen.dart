@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/provider/language_change_controller_provider.dart';
 import 'package:food_delivery_app/provider/theme_changer_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
@@ -19,7 +20,7 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: [
           Expanded(
-            flex: 9,
+            flex: 17,
             child: Container(
               padding: EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 5),
               color: Colors.white,
@@ -32,14 +33,15 @@ class _MyDrawerState extends State<MyDrawer> {
                       Column(
                         children: [
                           SizedBox(height: 20,),
-                          Text(
-                            "Foysal Joarder",
+
+                          Text(AppLocalizations.of(context)!.dname,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
-                              fontSize: 25,
+                              fontSize: 20,
                             ),
                           ),
+
                           Container(
                             height: 24,
                             width: 110,
@@ -54,8 +56,7 @@ class _MyDrawerState extends State<MyDrawer> {
                               ),
                             ),
                             child: Center(
-                              child: Text(
-                                "Refer Friends",
+                              child: Text(AppLocalizations.of(context)!.drf,
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
@@ -117,8 +118,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       color: Colors.blue[100],
                     ),
                     child: Center(
-                      child: Text(
-                        "Book a vehicle",
+                      child: Text(AppLocalizations.of(context)!.dbav,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -129,39 +129,39 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
 
                   SizedBox(
-                    height: 20,
+                    height: 14,
                   ),
 
                   //3rd part
                   DrawerItem2(
                     icon: Icons.home_outlined,
-                    title: "My Bookings",
+                    title: AppLocalizations.of(context)!.dmb,
                     num: 2,
                     onTap: (){},
                   ),
 
                   DrawerItem21(
                     icon: Icons.person,
-                    title: "Profile",
+                    title: AppLocalizations.of(context)!.dpro,
                     //num: 2,
                     onTap: (){},
                   ),
 
                   DrawerItem21(
                     icon: Icons.payment,
-                    title: "Payments",
+                    title: AppLocalizations.of(context)!.dpay,
                     //num: 2,
                     onTap: (){},
                   ),
 
                   DrawerItem21(
                     icon: Icons.card_giftcard_sharp,
-                    title: "Gieft & Bonuses",
+                    title: AppLocalizations.of(context)!.dgb,
                     //num: 2,
                     onTap: (){},
                   ),
 
-                  SizedBox(height: 30,),
+                  SizedBox(height: 14,),
 
                   Row(
                     children: [
@@ -176,7 +176,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
                       SizedBox(width: 5,),
 
-                      Text("Have Questions?",
+                      Text(AppLocalizations.of(context)!.dp1,
                         style: TextStyle(
                           color: Colors.black38,
                         ),
@@ -184,7 +184,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ],
                   ),
 
-                  SizedBox(height: 8,),
+                  SizedBox(height: 5,),
 
                   Row(
                     children: [
@@ -199,7 +199,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
                       SizedBox(width: 5,),
 
-                      Text("About Services",
+                      Text(AppLocalizations.of(context)!.dp2,
                         style: TextStyle(
                           color: Colors.black38,
                         ),
@@ -207,7 +207,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ],
                   ),
 
-                  SizedBox(height: 8,),
+                  SizedBox(height: 5,),
 
                   Row(
                     children: [
@@ -222,7 +222,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
                       SizedBox(width: 5,),
 
-                      Text("Terms of Usage",
+                      Text(AppLocalizations.of(context)!.dp3,
                         style: TextStyle(
                           color: Colors.black38,
                         ),
@@ -230,35 +230,40 @@ class _MyDrawerState extends State<MyDrawer> {
                     ],
                   ),
 
-                  SizedBox(height: 8,),
+                  SizedBox(height: 5,),
 
-                  RadioListTile<ThemeMode>(
-                    title: Text("Light Theme"),
-                      value: ThemeMode.light,
-                      groupValue: changetTheme.themeMode,
-                      onChanged: changetTheme.setTheme
-                  ),
+                  Expanded(
+                      flex: 2,
+                      child: Column(
+                    children: [
+                      RadioListTile<ThemeMode>(
+                          title: Text(AppLocalizations.of(context)!.dt1),
+                          value: ThemeMode.light,
+                          groupValue: changetTheme.themeMode,
+                          onChanged: changetTheme.setTheme
+                      ),
 
-                  RadioListTile<ThemeMode>(
-                      title: Text("Dark Theme"),
-                      value: ThemeMode.dark,
-                      groupValue: changetTheme.themeMode,
-                      onChanged: changetTheme.setTheme
-                  ),
+                      RadioListTile<ThemeMode>(
+                          title: Text(AppLocalizations.of(context)!.dt2),
+                          value: ThemeMode.dark,
+                          groupValue: changetTheme.themeMode,
+                          onChanged: changetTheme.setTheme
+                      ),
 
-                  RadioListTile<ThemeMode>(
-                      title: Text("System Theme"),
-                      value: ThemeMode.system,
-                      groupValue: changetTheme.themeMode,
-                      onChanged: changetTheme.setTheme
-                  ),
+                      RadioListTile<ThemeMode>(
+                          title: Text(AppLocalizations.of(context)!.dt3),
+                          value: ThemeMode.system,
+                          groupValue: changetTheme.themeMode,
+                          onChanged: changetTheme.setTheme
+                      ),                    ],
+                  ))
                 ],
               ),
             ),
           ),
-          Expanded(flex: 1, child: Container(
+          Expanded(flex: 3, child: Container(
             child: ListTile(
-              title: Text("Become a Superuser",
+              title: Text(AppLocalizations.of(context)!.db1,
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -266,7 +271,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
               ),
 
-              subtitle: Text("Earn money with a design",
+              subtitle: Text(AppLocalizations.of(context)!.db2,
                 style: TextStyle(
                     fontSize: 14,
                     color: Colors.black38
