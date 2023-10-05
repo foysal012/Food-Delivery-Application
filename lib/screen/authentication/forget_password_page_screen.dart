@@ -27,6 +27,19 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
           children: [
 
             TextFormField(
+              validator: (value) {
+                if(value!.isEmpty){
+                  return "email field empty";
+                } else if(value.length > 25){
+                  return "too long";
+                }else if(value.length < 12){
+                  return "too short";
+                }else if(!value.contains("@")){
+                  return "too long";
+                }else if(!value.endsWith("gmail.com")){
+                  return "too long";
+                }
+              },
               controller: _emailController,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(

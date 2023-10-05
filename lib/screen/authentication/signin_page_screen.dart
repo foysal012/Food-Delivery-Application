@@ -39,6 +39,20 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
 
 
               TextFormField(
+
+                validator: (value) {
+                  if(value!.isEmpty){
+                    return "email field empty";
+                  } else if(value.length > 25){
+                    return "too long";
+                  }else if(value.length < 12){
+                    return "too short";
+                  }else if(!value.contains("@")){
+                    return "too long";
+                  }else if(!value.endsWith("gmail.com")){
+                    return "too long";
+                  }
+                },
                 controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -60,6 +74,15 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
               SizedBox(height: 10,),
 
               TextFormField(
+                validator: (value) {
+                  if(value!.isEmpty){
+                    return "password field empty";
+                  } else if(value.length > 15){
+                    return "too long";
+                  }else if(value.length < 8){
+                    return "too short";
+                  }
+                },
                 controller: _passwordController,
                 obscureText: isObsecureText,
                 decoration: InputDecoration(
