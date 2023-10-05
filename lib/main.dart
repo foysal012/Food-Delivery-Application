@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:food_delivery_app/provider/category_provider_class.dart';
 import 'package:food_delivery_app/provider/language_change_controller_provider.dart';
 import 'package:food_delivery_app/provider/theme_changer_provider.dart';
+import 'package:food_delivery_app/screen/authentication/forget_password_page_screen.dart';
 import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
+import 'package:food_delivery_app/screen/authentication/signup_page_screen.dart';
 import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
@@ -95,6 +97,8 @@ class MyApp extends StatelessWidget {
             //home: MyCartPageScreen(),
             //home: MessagingPageScreen(),
             home: SignInPageScreen(),
+            //home: SignUpPageScreen(),
+            //home: ForgetPasswordPageScreen(),
           );
         });
       })
