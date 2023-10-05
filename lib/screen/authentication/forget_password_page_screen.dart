@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ForgetPasswordPageScreen extends StatefulWidget {
   const ForgetPasswordPageScreen({Key? key}) : super(key: key);
@@ -25,6 +26,30 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+            Container(
+              height: 200,
+              width: 250,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.purple[300],
+              ),
+              child: Center(
+                child: Center(
+                  child: Text("Reset\nPassword",
+                    style: GoogleFonts.lobster(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
 
             TextFormField(
               validator: (value) {

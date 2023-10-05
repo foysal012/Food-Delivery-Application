@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/provider/language_change_controller_provider.dart';
 import 'package:food_delivery_app/provider/theme_changer_provider.dart';
+import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,6 +15,10 @@ class MyDrawer extends StatefulWidget {
 
 enum Language {English, Bangla, Spanish}
 class _MyDrawerState extends State<MyDrawer> {
+
+  bool isLoading = false;
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     final changetTheme = Provider.of<ThemeChangerProvider>(context);
@@ -262,23 +268,52 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
           ),
           Expanded(flex: 3, child: Container(
-            child: ListTile(
-              title: Text(AppLocalizations.of(context)!.db1,
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black
-                ),
-              ),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(AppLocalizations.of(context)!.db1,
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                    ),
+                  ),
 
-              subtitle: Text(AppLocalizations.of(context)!.db2,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black38
-                ),
-              ),
+                  subtitle: Text(AppLocalizations.of(context)!.db2,
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black38
+                    ),
+                  ),
 
-              trailing: Icon(Icons.arrow_forward_ios, color: Colors.black,),
+                  trailing: Icon(Icons.arrow_forward_ios, color: Colors.black,),
+                ),
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      isLoading = true;
+                    });
+                    _auth.signOut().then((value){
+                      setState(() {
+                        isLoading = false;
+                      });
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignInPageScreen()));
+                    }).onError((error, stackTrace){
+                      setState(() {
+                        isLoading = false;
+                      });
+                      utails(error.toString());
+                    });
+                  },
+                  child: isLoading == true ? CircularProgressIndicator() : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("Logout"),
+                      Icon(Icons.logout)
+                    ],
+                  ),
+                )
+              ],
             ),
           )),
         ],
