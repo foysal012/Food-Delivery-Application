@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ForgetPasswordPageScreen extends StatefulWidget {
@@ -11,6 +13,10 @@ class ForgetPasswordPageScreen extends StatefulWidget {
 class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
 
   TextEditingController _emailController = TextEditingController();
+
+  bool isLoading = false;
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +93,24 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
 
             InkWell(
               onTap: (){
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Send link to your email...")));
-                    Navigator.of(context).pop();
+                setState(() {
+                  isLoading = true;
+                });
+                _auth.sendPasswordResetEmail(email: _emailController.text.toString()).then((value){
+                  setState(() {
+                    isLoading = false;
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Send link to your email...")));
+                  print("Successfully Send link to your email...");
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignInPageScreen()));
+                }).onError((error, stackTrace){
+                  setState(() {
+                    isLoading = false;
+                  });
+                  print(error.toString());
+                  utails(error.toString());
+                });
+
               },
               child: Container(
                 height: 65,

@@ -12,6 +12,7 @@ import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 import 'package:food_delivery_app/screen/messageing_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
+import 'package:food_delivery_app/screen/splashscreen/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -100,9 +101,10 @@ class MyApp extends StatelessWidget {
             //home: BottomNavigationBarPageScreen(),
             //home: MyCartPageScreen(),
             //home: MessagingPageScreen(),
-            home: SignInPageScreen(),
+            //home: SignInPageScreen(),
             //home: SignUpPageScreen(),
             //home: ForgetPasswordPageScreen(),
+            home: SpalashScreen1(),
           );
         });
       })

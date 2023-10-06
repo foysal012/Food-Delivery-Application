@@ -298,6 +298,8 @@ class _MyDrawerState extends State<MyDrawer> {
                         isLoading = false;
                       });
                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignInPageScreen()));
+                      print("Successfully to Sign out...");
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully to Sign out...")));
                     }).onError((error, stackTrace){
                       setState(() {
                         isLoading = false;
