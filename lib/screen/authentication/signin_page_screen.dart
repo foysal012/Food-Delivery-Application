@@ -50,7 +50,7 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                   width: 250,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.purple[300],
+                    color: Color(0xff528265).withOpacity(0.6),
                   ),
                   child: Center(
                     child: Text("Sign In",
@@ -85,12 +85,12 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.purple),
+                      borderSide: BorderSide(color: Color(0xff528265)),
                       borderRadius: BorderRadius.circular(10),
                     ),
 
                     focusedBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.purple),
+                       borderSide: BorderSide(color: Color(0xff528265)),
                        borderRadius: BorderRadius.circular(10),
                     ),
 
@@ -116,12 +116,12 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                   obscureText: isObsecureText,
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.purple),
+                        borderSide: BorderSide(color: Color(0xff528265)),
                         borderRadius: BorderRadius.circular(10),
                       ),
 
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.purple),
+                        borderSide: BorderSide(color: Color(0xff528265)),
                         borderRadius: BorderRadius.circular(10),
                       ),
 
@@ -181,7 +181,7 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                     width: 250,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.purple[500]
+                      color: Color(0xff528265),
                     ),
                     child: Center(
                       child: isLoading == true ? CircularProgressIndicator() : Text("Sign in",
@@ -218,7 +218,7 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                     child: Text("Clik here",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple,
+                      color: Color(0xff528265),
                     ),
                     ),
                   )
@@ -246,7 +246,7 @@ class _SignInPageScreenState extends State<SignInPageScreen> {
                     child: Text("Clik here",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                        color: Color(0xff528265),
                       ),
                     ),
                   )

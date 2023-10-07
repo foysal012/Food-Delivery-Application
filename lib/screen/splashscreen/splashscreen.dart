@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/screen/introduction/introduction_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +16,7 @@ class _SpalashScreen1State extends State<SpalashScreen1> {
   void initState() {
     // TODO: implement initState
     Future.delayed(Duration(seconds: 2),(){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> IntroductionPageScreen1()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> IntroductionPageScreen()));
     });
     super.initState();
   }

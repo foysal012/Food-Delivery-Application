@@ -13,14 +13,14 @@ class IntroductionPageScreen1 extends StatefulWidget {
 
 class _IntroductionPageScreen1State extends State<IntroductionPageScreen1> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    Timer(Duration(seconds: 2), () {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => IntroDuctionPageScreen2()));
-    });
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   Timer(Duration(seconds: 2), () {
+  //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => IntroDuctionPageScreen2()));
+  //   });
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -124,28 +124,28 @@ class _IntroductionPageScreen1State extends State<IntroductionPageScreen1> {
 
             Spacer(),
 
-            InkWell(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavigationBarPageScreen()));
-              },
-              child: Container(
-                height: 70,
-              width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Text("Get Started",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 20
-                    ),
-                  ),
-                ),
-              ),
-            )
+            // InkWell(
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavigationBarPageScreen()));
+            //   },
+            //   child: Container(
+            //     height: 55,
+            //   width: double.infinity,
+            //     decoration: BoxDecoration(
+            //       color: Colors.orange,
+            //       borderRadius: BorderRadius.circular(20),
+            //     ),
+            //     child: const Center(
+            //       child: Text("Get Started",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           color: Colors.white,
+            //           fontSize: 20
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

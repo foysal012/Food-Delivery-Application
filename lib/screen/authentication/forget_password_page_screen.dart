@@ -38,7 +38,7 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
               width: 250,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.purple[300],
+                color: Color(0xff528265).withOpacity(0.6),
               ),
               child: Center(
                 child: Center(
@@ -74,12 +74,12 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
               controller: _emailController,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purple),
+                    borderSide: BorderSide(color: Color(0xff528265)),
                     borderRadius: BorderRadius.circular(10),
                   ),
 
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purple),
+                    borderSide: BorderSide(color: Color(0xff528265)),
                     borderRadius: BorderRadius.circular(10),
                   ),
 
@@ -117,7 +117,7 @@ class _ForgetPasswordPageScreenState extends State<ForgetPasswordPageScreen> {
                 width: 250,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.purple[500]
+                    color: Color(0xff528265)
                 ),
                 child: Center(child: Text("Reset",
                   style: TextStyle(

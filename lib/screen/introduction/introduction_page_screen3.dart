@@ -1,5 +1,10 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
 import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
+import 'package:food_delivery_app/screen/home_page_screen.dart';
 
 class IntroductionPageScreen3 extends StatefulWidget {
   const IntroductionPageScreen3({Key? key}) : super(key: key);
@@ -9,6 +14,30 @@ class IntroductionPageScreen3 extends StatefulWidget {
 }
 
 class _IntroductionPageScreen3State extends State<IntroductionPageScreen3> {
+
+  // void onLogin(){
+  //   FirebaseAuth _auth = FirebaseAuth.instance;
+  //   final user = _auth.currentUser;
+  //
+  //   if(user!.uid != null){
+  //     Timer(Duration(milliseconds: 100), () {
+  //       Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePageScreen()));
+  //     });
+  //   } else if(user.uid == null){
+  //     Timer(Duration(milliseconds: 100), () {
+  //       Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignInPageScreen()));
+  //     });
+  //   }
+  //
+  // }
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   onLogin();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,28 +142,28 @@ class _IntroductionPageScreen3State extends State<IntroductionPageScreen3> {
 
             Spacer(),
 
-            InkWell(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavigationBarPageScreen()));
-              },
-              child: Container(
-                height: 70,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Text("Get Started",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20
-                    ),
-                  ),
-                ),
-              ),
-            )
+            // InkWell(
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavigationBarPageScreen()));
+            //   },
+            //   child: Container(
+            //     height: 55,
+            //     width: double.infinity,
+            //     decoration: BoxDecoration(
+            //       color: Colors.orange,
+            //       borderRadius: BorderRadius.circular(20),
+            //     ),
+            //     child: const Center(
+            //       child: Text("Get Started",
+            //         style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //             fontSize: 20
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

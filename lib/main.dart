@@ -9,6 +9,7 @@ import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart'
 import 'package:food_delivery_app/screen/authentication/signup_page_screen.dart';
 import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
+import 'package:food_delivery_app/screen/introduction/introduction_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 import 'package:food_delivery_app/screen/messageing_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
@@ -105,6 +106,7 @@ class MyApp extends StatelessWidget {
             //home: SignUpPageScreen(),
             //home: ForgetPasswordPageScreen(),
             home: SpalashScreen1(),
+            //home: IntroductionPageScreen(),
           );
         });
       })
