@@ -1,15 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/provider/category_provider_class.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/burger_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/ramen_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/salad_page_screen.dart';
 import 'package:food_delivery_app/screen/Tab%20bar%20pages/walfe_page_screen.dart';
 import 'package:food_delivery_app/screen/category_page_screen.dart';
 import 'package:food_delivery_app/screen/drawer_page_screen.dart';
+import 'package:food_delivery_app/screen/favourite_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -159,7 +162,8 @@ bool selected = false;
 
                               InkWell(
                                 onTap:(){
-                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyCartPageScreen()));
+                                  //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyCartPageScreen()));
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> FavouritePageScreen()));
                                 },
                                 child: Stack(
 
@@ -180,21 +184,25 @@ bool selected = false;
                                     Positioned(
                                         right: -2,
                                         top: -2,
-                                        child: Container(
-                                          height: 18,
-                                          width: 18,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.redAccent,
-                                          ),
-                                          child: Center(
-                                            child: Text("${data}",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                            ),
-                                          ),
+                                        child: Consumer<CategoryProviderClass>(
+                                          builder: (context, value, child){
+                                            return Container(
+                                              height: 18,
+                                              width: 18,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.redAccent,
+                                              ),
+                                              child: Center(
+                                                child: Text("${value.allDataList.length.toString()}",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
                                         )
                                     )
                                   ],

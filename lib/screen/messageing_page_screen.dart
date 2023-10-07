@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MessagingPageScreen extends StatefulWidget {
   const MessagingPageScreen({Key? key}) : super(key: key);
@@ -16,17 +15,7 @@ class _MessagingPageScreenState extends State<MessagingPageScreen> {
 
   TextEditingController textController = TextEditingController();
 
-  // late BannerAd bannerAd;
-  // bool isLoaded = false;
 
-  // initBannerAd(){
-  //   bannerAd = BannerAd(
-  //       size: AdSize.banner,
-  //       adUnitId: adUnitId,
-  //       listener: listener,
-  //       request: request
-  //   )
-  // }
 
   @override
   Widget build(BuildContext context) {

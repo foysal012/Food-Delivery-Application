@@ -171,17 +171,11 @@ class _RamenPageScreenState extends State<RamenPageScreen> {
                                       rating: remenData[index].rating,
                                       distance: remenData[index].distance,
                                       price: remenData[index].price
-                                  )) : value.setRemoveItemList(
-                                    RemenModelClass(
-                                        imgUrl: remenData[index].imgUrl,
-                                        name: remenData[index].name,
-                                        rating: remenData[index].rating,
-                                        distance: remenData[index].distance,
-                                        price: remenData[index].price
-                                    )
-                                  // remenData[index]
+                                  )) :
+                                {
 
-                                );
+                                }
+                                 ;
 
                                 print(value.allDataList.length);
                                 print(value.allDataList.toList());

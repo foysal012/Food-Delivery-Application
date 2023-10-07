@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/screen/authentication/signin_page_screen.dart';
+import 'package:food_delivery_app/screen/bottomnavbar/bottomnavigationbar_screen.dart';
 import 'package:food_delivery_app/screen/home_page_screen.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen1.dart';
 import 'package:food_delivery_app/screen/introduction/introduction_page_screen2.dart';
@@ -34,7 +35,7 @@ class _IntroductionPageScreenState extends State<IntroductionPageScreen> {
     } else {
       //Timer(Duration(milliseconds: 100), () {
       print("Joarder");
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePageScreen()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavigationBarPageScreen()));
       // });
     }
     // setState(() {

@@ -8,16 +8,23 @@ class CategoryProviderClass with ChangeNotifier{
 
   List<RemenModelClass> get allDataList => _allDataList;
 
-  void setAddItemList(remenModelClass){
+  void setAddItemList(RemenModelClass remenModelClass){
     _allDataList.add(remenModelClass);
+    getTotalPrice();
     notifyListeners();
   }
 
-  void setRemoveItemList(remenModelClass){
-
-    _allDataList.remove(remenModelClass);
-    notifyListeners();
+  void setRemoveItemList(RemenModelClass remenModelClass){
+    final index = _allDataList.indexOf(remenModelClass);
+    //_allDataList.remove(index);
+    if(index != -1){
+      _allDataList.removeAt(index);
+      getTotalPrice();
+      notifyListeners();
+    }
   }
+
+
 
   void setIncreaseItem(RemenModelClass remenModelClass){
 

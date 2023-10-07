@@ -99,13 +99,13 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             //home: IntroductionPageScreen1(),
             //home: HomePageScreen(),
-            //home: BottomNavigationBarPageScreen(),
+            home: BottomNavigationBarPageScreen(),
             //home: MyCartPageScreen(),
             //home: MessagingPageScreen(),
             //home: SignInPageScreen(),
             //home: SignUpPageScreen(),
             //home: ForgetPasswordPageScreen(),
-            home: SpalashScreen1(),
+            //home: SpalashScreen1(),
             //home: IntroductionPageScreen(),
           );
         });

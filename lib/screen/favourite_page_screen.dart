@@ -4,9 +4,11 @@ import 'package:food_delivery_app/provider/category_provider_class.dart';
 import 'package:provider/provider.dart';
 
 class FavouritePageScreen extends StatefulWidget {
-   FavouritePageScreen({Key? key, this.varenda}) : super(key: key);
+   FavouritePageScreen({Key? key, this.varenda, this.remenModelClass}) : super(key: key);
 
   List<RemenModelClass>? varenda;
+
+  RemenModelClass? remenModelClass;
 
   @override
   State<FavouritePageScreen> createState() => _FavouritePageScreenState();
@@ -26,9 +28,14 @@ class _FavouritePageScreenState extends State<FavouritePageScreen> {
   // aita aktu limitation
   //tik korbo in sha allah
 
+  final remenData1 = RemenModelClass.categoryRemenList;
+
   @override
   Widget build(BuildContext context) {
-    final categoryProviderClass = Provider.of<CategoryProviderClass>(context, listen: false);
+    final categoryProviderClass = Provider.of<CategoryProviderClass>(
+        context,
+        listen: false
+    );
     print("build");
     print("value");
     return Scaffold(
@@ -207,12 +214,71 @@ class _FavouritePageScreenState extends State<FavouritePageScreen> {
                                 ],
                               ),
 
-                              IconButton(
-                                  onPressed: (){
+                              Consumer<CategoryProviderClass>(
+                                  builder: (context, value, child){
+                                    return IconButton(
+                                        onPressed: (){
+                                          print("Foysal");
+                                          print(value.allDataList.length);
 
-                                  },
-                                  icon: Icon(Icons.delete, color: Colors.black,)
-                              )
+                                          value.setRemoveItemList(value.allDataList[index]);
+
+                                          setState(() {
+
+                                          });
+
+                                          print(value.allDataList.length);
+
+                                        },
+                                        icon: Icon(Icons.delete, color: Colors.black,)
+                                    );
+                                  }
+                              ),
+
+                              // IconButton(
+                              //     onPressed: (){
+                              //
+                              //       print("Foysal");
+                              //       // value.allDataList.contains(remenData[index]) == false ?
+                              //       //
+                              //       // value.setAddItemList(RemenModelClass(
+                              //       //     imgUrl: remenData[index].imgUrl,
+                              //       //     name: remenData[index].name,
+                              //       //     rating: remenData[index].rating,
+                              //       //     distance: remenData[index].distance,
+                              //       //     price: remenData[index].price
+                              //       // )) : value.setRemoveItemList(
+                              //       //     RemenModelClass(
+                              //       //         imgUrl: remenData[index].imgUrl,
+                              //       //         name: remenData[index].name,
+                              //       //         rating: remenData[index].rating,
+                              //       //         distance: remenData[index].distance,
+                              //       //         price: remenData[index].price
+                              //       //     )
+                              //       //   // remenData[index]
+                              //       //
+                              //       // );
+                              //       //value.allDataList.contains(widget.varenda?[index]) == true ?
+                              //      // categoryProviderClass.allDataList.contains(remenData1[index]) == true ?
+                              //
+                              //       categoryProviderClass.setRemoveItemList(
+                              //           RemenModelClass(
+                              //         imgUrl: remenData1[index].imgUrl,
+                              //         rating: remenData1[index].rating,
+                              //         name: remenData1[index].name,
+                              //         distance: remenData1[index].distance,
+                              //         price:  remenData1[index].price,
+                              //       )
+                              //         //categoryProviderClass.allDataList[index]
+                              //       );
+                              //       //     :
+                              //       // {
+                              //       //
+                              //       // };
+                              //
+                              //     },
+                              //     icon: Icon(Icons.delete, color: Colors.black,)
+                              // )
 
                             ],
                           )
