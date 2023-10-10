@@ -12,6 +12,7 @@ import 'package:food_delivery_app/screen/favourite_page_screen.dart';
 import 'package:food_delivery_app/screen/my_cart_page_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:food_delivery_app/screen/search_page_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -142,18 +143,23 @@ bool selected = false;
                           Row(
                             children: [
 
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                    width: 2,
+                              InkWell(
+                                onTap:(){
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SearchPageScreen()));
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.black12,
+                                      width: 2,
+                                    ),
+                                    color: Colors.white70
                                   ),
-                                  color: Colors.white70
+                                child: Icon(Icons.search,size: 30, color: Colors.black,),
                                 ),
-                              child: Icon(Icons.search,size: 30, color: Colors.black,),
                               ),
 
                               SizedBox(

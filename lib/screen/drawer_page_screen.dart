@@ -23,13 +23,14 @@ class _MyDrawerState extends State<MyDrawer> {
   Widget build(BuildContext context) {
     final changetTheme = Provider.of<ThemeChangerProvider>(context);
     return Drawer(
+      //backgroundColor: Colors.grey,
       child: Column(
         children: [
           Expanded(
             flex: 17,
             child: Container(
               padding: EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 5),
-              color: Colors.white,
+              color: Color(0xff528265).withOpacity(0.3),
               child: Column(
                 children: [
                   //1st part
